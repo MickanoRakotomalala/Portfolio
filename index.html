@@ -576,6 +576,35 @@
     </div>
     <!-- ==== Style Switcher End ==== -->
     <!-- ==== JS Files ==== -->
+
+    <script type="text/javascript">
+      // Récupérer les éléments du formulaire et du bouton
+      const form = document.getElementById('myForm');
+      const submitButton = document.getElementById('submitButton');
+
+      // Fonction pour vérifier le formulaire
+      function checkForm() {
+          // Vérifier si les champs requis sont vides
+          const nameValue = document.getElementById('name').value.trim();
+          const emailValue = document.getElementById('email').value.trim();
+          const objetValue = document.getElementById('objet').value.trim();
+          const messageValue = document.getElementById('message').value.trim();
+
+          // Si les champs sont vides, désactiver le bouton ; sinon, l'activer
+          if (nameValue === '' || emailValue === '' || objetValue === '' || messageValue === '') {
+              submitButton.disabled = true;
+          } else {
+              submitButton.disabled = false;
+          }
+      }
+
+      // Écouter les événements 'input' dans le formulaire
+      form.addEventListener('input', checkForm);
+
+      // Vérifier l'état initial du formulaire au chargement de la page
+      checkForm();
+    </script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
       referrerpolicy="no-referrer"
